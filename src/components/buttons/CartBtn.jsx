@@ -15,11 +15,7 @@ const CartBtn = () => {
 
   return (
     <StyledNavLink to="/cart">
-      <Button
-        variant="outlined"
-        className="ms-2"
-        startIcon={<ShoppingCartIcon />}
-      >
+      <Button variant="outlined" startIcon={<ShoppingCartIcon />}>
         Cart ({state.length})
       </Button>
     </StyledNavLink>

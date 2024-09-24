@@ -43,12 +43,7 @@ const Login = () => {
 
   return (
     <>
-      <Button
-        variant="outlined"
-        className="ms-auto"
-        startIcon={<LoginIcon />}
-        onClick={handleOpen}
-      >
+      <Button variant="outlined" startIcon={<LoginIcon />} onClick={handleOpen}>
         Login
       </Button>
       <StyledModal open={open} onClose={handleClose}>
