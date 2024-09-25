@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import DATA from "../Data";
+import { useSelector } from "react-redux"; // Import useSelector
 import {
   Box,
   Grid2,
@@ -33,6 +33,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Product = () => {
+  const products = useSelector((state) => state.fetchProducts.items); // Access products from the Redux store
+
   const cardItem = (item) => {
     return (
       <StyledCard key={item.id}>
@@ -66,7 +68,7 @@ const Product = () => {
     <StyledBox>
       <Typography variant="h4">Product</Typography>
       <hr />
-      <StyledGrid container>{DATA.map(cardItem)}</StyledGrid>
+      <StyledGrid container>{products.map(cardItem)}</StyledGrid>
     </StyledBox>
   );
 };

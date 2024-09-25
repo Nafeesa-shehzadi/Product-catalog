@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import DATA from "../Data";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, delItem } from "../redux/actions/index";
 import { Box, Grid, Typography, Button, styled } from "@mui/material";
 
@@ -21,8 +20,8 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-  const product = DATA.find((x) => x.id.toString() === id);
-
+  const products = useSelector((state) => state.fetchProducts.items);
+  const product = products.find((x) => x.id.toString() === id);
   if (!product) {
     return <div>Product not found</div>;
   }
